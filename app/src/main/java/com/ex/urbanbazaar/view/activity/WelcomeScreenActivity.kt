@@ -8,9 +8,8 @@ import com.ex.urbanbazaar.R
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         val splashScreen = installSplashScreen()
-
+        super.onCreate(savedInstanceState)
 
         splashScreen.setOnExitAnimationListener { splashScreenView ->
             val view = splashScreenView.view
