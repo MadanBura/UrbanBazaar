@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_registrationScreenFragment_to_complateProfileFragment"
             app:destination="@id/complateProfileFragment" />
+        <action
+            android:id="@+id/action_registrationScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/complateProfileFragment"

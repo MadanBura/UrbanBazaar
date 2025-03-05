@@ -4,17 +4,22 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.ex.urbanbazaar.R
+import com.ex.urbanbazaar.utils.TokenManager
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class SplashScreenActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class WelcomeScreenActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var tokenManager: TokenManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
 
         splashScreen.setOnExitAnimationListener { splashScreenView ->
-            val view = splashScreenView.view
-
-            view.animate()
+            splashScreenView.view.animate()
                 .alpha(0f)
                 .setDuration(3000)
                 .withEndAction {
@@ -26,19 +31,19 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun navigateToNextScreen() {
-//        val accessToken = PreferenceManager.getAccessToken(this)
-//        val isLoggedIn = !accessToken.isNullOrBlank()
+        val isFirstTime = tokenManager.getAppFlagDetails()
 
-        val isLoggedIn = false
-        val nextActivity = if (isLoggedIn) {
-            DashboardActivity::class.java
+        if (isFirstTime) {
+            tokenManager.setFirstTimeFlag(false)
+            startActivity(Intent(this, WelcomeActivity::class.java))
         } else {
-            LoginActivity::class.java
+            val accessToken = tokenManager.getAccessToken()
+            if (accessToken != null) {
+                startActivity(Intent(this, DashboardActivity::class.java))
+            } else {
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
         }
-
-        startActivity(Intent(this, nextActivity))
         finish()
     }
-
-
 }

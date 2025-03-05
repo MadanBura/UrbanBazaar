@@ -2,7 +2,9 @@ package com.ex.urbanbazaar.di
 
 import android.content.Context
 import com.ex.urbanbazaar.dataSource.remote.UrbanApiService
+import com.ex.urbanbazaar.repository.ProductRepository
 import com.ex.urbanbazaar.repository.UserRepository
+import com.ex.urbanbazaar.repositoryImpl.ProductRepositoryImpl
 import com.ex.urbanbazaar.repositoryImpl.UserRepositoryImpl
 import com.ex.urbanbazaar.utils.AuthInterceptor
 import com.ex.urbanbazaar.utils.TokenAuthenticator
@@ -78,5 +80,11 @@ object AppModule {
         return UserRepositoryImpl(apiService, tokenManager)
     }
 
+
+    @Provides
+    @Singleton
+    fun provideProductRepository(apiService: UrbanApiService):ProductRepository{
+        return ProductRepositoryImpl(apiService)
+    }
 
 }

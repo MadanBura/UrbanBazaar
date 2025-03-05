@@ -1,5 +1,6 @@
 package com.ex.urbanbazaar.view.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.ex.urbanbazaar.R
+import com.ex.urbanbazaar.view.activity.LoginActivity
 import com.ex.urbanbazaar.view.adapters.OnBoardScreenImageAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -73,6 +75,9 @@ class OnBoardScreenFragment : Fragment() {
         nextButton.setOnClickListener {
             if (viewPager2.currentItem < screenImageList.size - 1) {
                 viewPager2.currentItem += 1
+            }else{
+                val intent = Intent(requireContext(), LoginActivity::class.java)
+                startActivity(intent)
             }
         }
 

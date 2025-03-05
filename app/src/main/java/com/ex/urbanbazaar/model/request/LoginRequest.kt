@@ -1,4 +1,6 @@
 package com.ex.urbanbazaar.model.request
 
-class LoginRequest {
-}
+data class LoginRequest(
+    private val email :String,
+    private val password:String
+)

@@ -64,7 +64,6 @@
             android:scaleType="centerCrop"
             android:src="@drawable/agent"/>
 
-        <!-- Edit Icon -->
         <ImageView
             android:id="@+id/ivEditProfile"
             android:layout_width="24dp"
