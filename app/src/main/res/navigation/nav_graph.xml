@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/letsGetStartedFragment">
+
+
+    <fragment
+        android:id="@+id/letsGetStartedFragment"
+        android:name="com.ex.urbanbazaar.view.fragments.LetsGetStartedFragment"
+        android:label="fragment_lets_get_started"
+        tools:layout="@layout/fragment_lets_get_started" >
+        <action
+            android:id="@+id/action_letsGetStartedFragment_to_onBoardScreenFragment"
+            app:destination="@id/onBoardScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardScreenFragment"
+        android:name="com.ex.urbanbazaar.view.fragments.OnBoardScreenFragment"
+        android:label="fragment_on_board_screen"
+        tools:layout="@layout/fragment_on_board_screen" />
+
 
 </navigation>
