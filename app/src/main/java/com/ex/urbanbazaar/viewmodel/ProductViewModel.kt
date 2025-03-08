@@ -11,15 +11,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
 @HiltViewModel
 class ProductViewModel @Inject constructor(
     private val productRepository: ProductRepository
-) : ViewModel() {
+) : ViewModel(){
 
     private val _categoryRes = MutableLiveData<ResultState<CategoryResponse>>()
     val categoryRes : LiveData<ResultState<CategoryResponse>> get() = _categoryRes
-
 
 
     fun getProductCategories(){
@@ -27,24 +25,22 @@ class ProductViewModel @Inject constructor(
         _categoryRes.value = ResultState.Loading
 
         viewModelScope.launch {
-
             try {
+
                 val response = productRepository.getProductCategories()
 
                 if(response.isSuccessful){
                     _categoryRes.value = ResultState.Success(response.body()!!)
                 }else{
-                    _categoryRes.value = ResultState.Error(Exception("Error while fetching ProductCategories : ${response.message()}"))
+                    _categoryRes.value = ResultState.Error(Exception("${response.message()}"))
                 }
-
-            }catch (e : Exception){
-                _categoryRes.value = ResultState.Error(Exception("Login failed: ${e.message}"))
-
+            }catch (e :Exception){
+                _categoryRes.value = ResultState.Error(Exception("${e.message}"))
             }
-
         }
 
-
     }
+
+
 
 }

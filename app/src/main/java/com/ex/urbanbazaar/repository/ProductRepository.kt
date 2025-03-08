@@ -5,6 +5,6 @@ import retrofit2.Response
 
 interface ProductRepository {
 
-    suspend fun getProductCategories() : Response<CategoryResponse>
+    suspend fun getProductCategories() :Response<CategoryResponse>
 
 }
