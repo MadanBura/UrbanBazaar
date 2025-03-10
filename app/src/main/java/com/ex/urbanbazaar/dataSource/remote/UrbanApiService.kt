@@ -4,6 +4,7 @@ import com.ex.urbanbazaar.model.request.AccessTokenRequest
 import com.ex.urbanbazaar.model.request.LoginRequest
 import com.ex.urbanbazaar.model.request.UserRequest
 import com.ex.urbanbazaar.model.response.CategoryResponse
+import com.ex.urbanbazaar.model.response.ProductResponse
 import com.ex.urbanbazaar.model.response.ImageUploadResponse
 import com.ex.urbanbazaar.model.response.RegistrationResponse
 import com.ex.urbanbazaar.model.response.TokenResponse
@@ -16,6 +17,7 @@ import retrofit2.http.Header
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
 
 interface UrbanApiService {
 
@@ -46,5 +48,14 @@ interface UrbanApiService {
 
     @GET("categories")
     suspend fun getCategories() : Response<CategoryResponse>
+
+    @GET("categories/{categoryID}/products")
+    suspend fun getProductsByCategory(
+        @Path("categoryID") categoryId: Int
+    ): Response<ProductResponse>
+
+    @GET("products")
+    suspend fun getAllProducts() : Response<ProductResponse>
+
 
 }

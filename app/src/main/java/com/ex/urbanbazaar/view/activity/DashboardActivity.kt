@@ -6,7 +6,9 @@ import com.ex.urbanbazaar.R
 import com.ex.urbanbazaar.databinding.ActivityDashboardBinding
 import com.ex.urbanbazaar.view.fragments.DashBoardScreenFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DashboardActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityDashboardBinding

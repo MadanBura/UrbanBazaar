@@ -51,9 +51,9 @@ object AppModule {
             .addInterceptor(loggingInterceptor)
             .addInterceptor(AuthInterceptor(tokenManager))
             .authenticator(tokenAuthenticator)
-            .readTimeout(2, TimeUnit.MINUTES)
-            .writeTimeout(2, TimeUnit.MINUTES)
-            .connectTimeout(2, TimeUnit.MINUTES)
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
             .build()
     }
 

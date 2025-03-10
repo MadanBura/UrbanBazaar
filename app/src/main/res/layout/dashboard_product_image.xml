@@ -1,84 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    
+    android:padding="10dp">
+
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="6dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        >   
-        
+        android:padding="10dp"
+        android:background="@color/white">
+
         <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- Product Image -->
             <ImageView
-                android:id="@+id/iv_product_image_id"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/productImageClothes"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
                 android:src="@drawable/clothing"
-                android:scaleType="fitXY"/>
+                android:scaleType="fitXY"
+                android:layout_gravity="center" />
 
+            <!-- Wishlist Button Positioned to the Top Right -->
             <ImageView
-                android:id="@+id/iv_product_image_heart"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:id="@+id/wishListBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:src="@drawable/before_wishlist"
-                android:layout_gravity="end"
-                android:layout_margin="50dp"/>
+                android:layout_gravity="top|end"
+                android:layout_margin="16dp" />
 
+            <!-- Product Info Card -->
             <androidx.cardview.widget.CardView
-                android:layout_width="330dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/light_white"
-                android:layout_gravity="bottom"
-                android:orientation="vertical"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-                android:layout_marginBottom="70dp">
+                 app:cardElevation="6dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="16dp"
+                android:padding="10dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tv_item_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="White Top"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="30sp"
-                    android:fontFamily="@font/balsamiqsans_regular"
-                    android:textSize="30sp"
-                    />
 
-                <TextView
-                    android:id="@+id/tv_item_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="755"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="30sp"
-                    android:fontFamily="@font/balsamiqsans_bold"
-                    android:textSize="30sp"/>
+                    <TextView
+                        android:id="@+id/itemName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="White Top"
+                        android:fontFamily="@font/balsamiqsans_regular"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"/>
 
+                    <TextView
+                        android:id="@+id/itemPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹755"
+                        android:fontFamily="@font/balsamiqsans_bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="8dp"/>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
             </androidx.cardview.widget.CardView>
-            
+
         </FrameLayout>
-        
-        
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
